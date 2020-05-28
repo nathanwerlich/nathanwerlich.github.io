@@ -23,8 +23,8 @@ paths:
   /solicitacao:
     post:
       tags:
-      - Post PEC
-      summary: adiciona uma solicitação
+      - Post que o PEC realiza
+      summary: Adiciona uma solicitação
       description: Envia uma requisição para o orgão regulador
       operationId: addSolicitacao
       requestBody:
@@ -40,6 +40,26 @@ paths:
           description: Input ou objeto invalido
         "409":
           description: Já existe uma solicitação identica
+  /especialidades:
+    post:
+      tags:
+      - Formato do POST que o PEC aceita
+      summary: Recebe especialidades
+      description: Busca as especialidades
+      operationId: getEspecialidade
+      requestBody:
+        description: Dados das especialidades
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dadosEspecialidade'
+      responses:
+        "201":
+          description: Especialidades atualizadas
+        "400":
+          description: Não foi possivel atualizar as especialidades
+        "501":
+          description: Servidor indisponivel
 components:
   schemas:
     dadosSolicitacao:
@@ -72,3 +92,16 @@ components:
           type: string
           format: date-time
           example: 2016-08-29T09:12:33.001Z
+    dadosEspecialidade:
+      required:
+      - id
+      - nome
+      type: object
+      properties:
+        id:
+          type: number
+          format: ID
+          example: 123
+        nome:
+          type: string
+          example: CONSULTA EM CIRURGIA ONCOLÓGICA
