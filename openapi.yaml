@@ -8,6 +8,10 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
+  x-logo:
+    url: https://integracao.esusab.ufsc.br/img/logo-esus.png
+    backgroundColor: '#0000FF'
+    altText: Petstore logo
 servers:
 - url: https://virtserver.swaggerhub.com/nathanwerlich/Teste/1.0.0
   description: SwaggerHub API Auto Mocking
