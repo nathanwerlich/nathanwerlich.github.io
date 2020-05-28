@@ -1,0 +1,69 @@
+openapi: 3.0.0
+info:
+  title: Teste para Regulação
+  description: Documentação simples dos endpoints
+  contact:
+    email: teste@bridge.ufsc.br
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/nathanwerlich/Teste/1.0.0
+  description: SwaggerHub API Auto Mocking
+tags:
+- name: Post PEC
+  description: Padrão de POST do PEC
+paths:
+  /solicitacao:
+    post:
+      tags:
+      - Post PEC
+      summary: adiciona uma solicitação
+      description: Envia uma requisição para o orgão regulador
+      operationId: addSolicitacao
+      requestBody:
+        description: Dados da solicitação
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dadosSolicitacao'
+      responses:
+        "201":
+          description: Solicitação recebida
+        "400":
+          description: input ou objeto invalido
+        "409":
+          description: Já existe uma solicitação identica
+components:
+  schemas:
+    dadosSolicitacao:
+      required:
+      - classificacaoRisco
+      - cnsCidadao
+      - dataEncaminhamento
+      - especialidade
+      - token
+      type: object
+      properties:
+        token:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        especialidade:
+          type: string
+          example: acupunturista
+        classificacaoRisco:
+          type: string
+          example: Emergência
+        telefone:
+          type: string
+          format: string
+          example: 48 9 98855-4433
+        cnsCidadao:
+          type: string
+          example: "155929702510002"
+        dataEncaminhamento:
+          type: string
+          format: date-time
+          example: 2016-08-29T09:12:33.001Z
