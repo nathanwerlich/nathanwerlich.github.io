@@ -9,9 +9,10 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
   x-logo:
-    url: https://integracao.esusab.ufsc.br/img/logo-esus.png
-    backgroundColor: '#0000FF'
-    altText: Petstore logo
+    url: https://www.ufrgs.br/telessauders/wp-content/uploads/2016/03/519_e-SUS_279J_original.png
+    backgroundColor: '#FFFFFF'
+    altText: e-SUS Logo
+    href: https://integracao.esusab.ufsc.br/
 servers:
 - url: https://virtserver.swaggerhub.com/nathanwerlich/Teste/1.0.0
   description: SwaggerHub API Auto Mocking
@@ -36,7 +37,7 @@ paths:
         "201":
           description: Solicitação recebida
         "400":
-          description: input ou objeto invalido
+          description: Input ou objeto invalido
         "409":
           description: Já existe uma solicitação identica
 components:
